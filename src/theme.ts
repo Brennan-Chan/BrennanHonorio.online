@@ -1,5 +1,5 @@
 const theme = {
-   name: "sevanevans.com",
+   name: "brennanhonorio.online",
    rounding: 4,
    spacing: 24,
    defaultMode: "light",
