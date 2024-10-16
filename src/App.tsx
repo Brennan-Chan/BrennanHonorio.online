@@ -40,7 +40,6 @@ import ContactGrid from "./components/ContactGrid";
 import LocationDrop from "./components/LocationDrop";
 import useMediaQuery from "./hooks/UseMediaQuery";
 import TechnologyStack from "./components/TechnologyStack";
-import DancingImage from "./components/DancingEasterEgg";
 
 const AppContainer = styled.div`
    position: relative;
@@ -90,7 +89,7 @@ const App = () => {
                }
             >
                <Heading color="collaborator" margin={{ left: "small", top: "none" }} size="small">
-                  s.<EvansSpan>evans</EvansSpan>
+                  B.<EvansSpan>Chan</EvansSpan>
                </Heading>
                <DarkThemeSwitch dark={dark} setDark={setDark} />
             </Header>
@@ -116,7 +115,7 @@ const App = () => {
                               src="https://firebasestorage.googleapis.com/v0/b/bodymx-80bc1.appspot.com/o/profilePictures%2FW0xdrFJk8BPiLv93iwv5n7sZleH2?alt=media&token=fd5d2a17-462f-4350-ba6c-6fa10c3b47e9"
                            />
                            <Box align="start" justify="start" fill>
-                              <Heading margin="none">sevan</Heading>
+                              <Heading margin="none">Brennan</Heading>
                               <Heading
                                  margin={{
                                     left: "medium",
@@ -125,7 +124,7 @@ const App = () => {
                                     bottom: "none",
                                  }}
                               >
-                                 evans
+                                 Chan
                               </Heading>
                            </Box>
                         </Box>
@@ -267,7 +266,6 @@ const App = () => {
                      boxRef={boxRef}
                   />
                )}
-               {dancing && <DancingImage />}
             </Page>
             {/* <PostCardLocation /> */}
             {/* </AppContainer> */}
