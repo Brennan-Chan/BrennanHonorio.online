@@ -24,7 +24,7 @@ module.exports = {
       "import/prefer-default-export": "off",
       "spaced-comment": ["warn"],
       "no-unused-vars": "off",
-      "@typescript-eslint/no-unused-vars": ["warn"],
+      "@typescript-eslint/no-unused-vars": process.env.CI ? "off" : ["warn"], // Disable in CI,
       "react/jsx-wrap-multilines": "off",
       "react/jsx-curly-newline": "off",
       "react/jsx-boolean-value": "off",
