@@ -77,15 +77,15 @@ const App = () => {
                style={
                   dark
                      ? {
-                          backdropFilter: "blur(5.5px)",
-                          WebkitBackdropFilter: "blur(8.5px)",
-                       }
+                           backdropFilter: "blur(5.5px)",
+                           WebkitBackdropFilter: "blur(8.5px)",
+                        }
                      : {
-                          background: "rgba(255, 255, 255, 0.3)",
-                          backdropFilter: "blur(5.5px)",
-                          WebkitBackdropFilter: "blur(8.5px)",
-                          border: "1px solid rgba(255, 255, 255, 0.18)",
-                       }
+                           background: "rgba(255, 255, 255, 0.3)",
+                           backdropFilter: "blur(5.5px)",
+                           WebkitBackdropFilter: "blur(8.5px)",
+                           border: "1px solid rgba(255, 255, 255, 0.18)",
+                        }
                }
             >
                <Heading color="collaborator" margin={{ left: "small", top: "none" }} size="small">
@@ -135,10 +135,10 @@ const App = () => {
                               color="text-paragraph"
                            >
                               Whats up, I'm a{" "}
-                              <StyledSpan>self-taught software developer</StyledSpan> &{" "}
-                              <StyledSpan>tech enthusiast</StyledSpan>. I enjoy{" "}
-                              <StyledSpan>long walks on the beach</StyledSpan> and{" "}
-                              <StyledSpan>dancing Tango!</StyledSpan>
+                              <StyledSpan>Data-Scientist</StyledSpan> &{" "}
+                              <StyledSpan>Statistician</StyledSpan>. I enjoy{" "}
+                              <StyledSpan>groovy house music</StyledSpan> and{" "}
+                              <StyledSpan>Creating Spreadsheets for Satisfactory!</StyledSpan>
                            </Paragraph>
                            <Box
                               align="end"
