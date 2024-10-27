@@ -53,8 +53,14 @@ const theme = {
             dark: "#444444",
             light: "#CCCCCC",
          },
+         "intern": "#6d9ac7",
+         "data-scientist": "#1269cc",
+         "project-lead": "#51eefc",
+         "primary-color": "#303030",
+         "accent-color": "#ffffff",
+
          "co-founder": "#1D2E28",
-         collaborator: "#0F5132",
+         "collaborator": "#0F5132",
          "1st-place": "#14452F",
          "software-engineer": "#006e48",
 

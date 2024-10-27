@@ -9,18 +9,18 @@ const placeProps = (name, color, showDrop) => ({
    color,
    ...(showDrop
       ? {
-           content: (
-              <Box pad={{ horizontal: "small", vertical: "xsmall" }}>
-                 <Text>{name}</Text>
-              </Box>
-           ),
-           dropProps: {
-              background: { color },
-              elevation: "medium",
-              margin: { left: "small" },
-              round: "xsmall",
-           },
-        }
+            content: (
+               <Box pad={{ horizontal: "small", vertical: "xsmall" }}>
+                  <Text>{name}</Text>
+               </Box>
+            ),
+            dropProps: {
+               background: { color },
+               elevation: "medium",
+               margin: { left: "small" },
+               round: "xsmall",
+            },
+         }
       : {}),
 });
 
@@ -61,7 +61,7 @@ const LocationDrop = ({ setLocationDrop, locationDrop, boxRef }) => {
                            color: "green",
                            content: (
                               <Box pad={{ horizontal: "small", vertical: "xsmall" }}>
-                                 <Text>Palm Springs</Text>
+                                 <Text>Waco</Text>
                               </Box>
                            ),
                            dropProps: {
@@ -70,8 +70,8 @@ const LocationDrop = ({ setLocationDrop, locationDrop, boxRef }) => {
                               margin: { left: "small" },
                               round: "xsmall",
                            },
-                           name: "Palm Springs",
-                           location: [33.8303, -116.5453],
+                           name: "Waco",
+                           location: [31.559814, -97.141800],
                            onClick: () => {
                               // Handle click event
                            },
@@ -82,14 +82,16 @@ const LocationDrop = ({ setLocationDrop, locationDrop, boxRef }) => {
                         // Add more places as needed
                      ]}
                   />
-                  <PostCardLocation />
+                  {/*TODO: might want to change the postcard location*/}
+                  {/*<PostCardLocation />*/}
                   <ImageStack
                      boxRef={innerBoxRef}
+                     //TODO: Might want to find better pictures or decide if you want this feature or not
                      images={[
-                        "https://firebasestorage.googleapis.com/v0/b/bodymx-80bc1.appspot.com/o/sevanportfolio%2Fpsp1.png?alt=media&token=40b26cba-c6f5-4561-8f6d-2c69dfa1c79c",
-                        "https://firebasestorage.googleapis.com/v0/b/bodymx-80bc1.appspot.com/o/sevanportfolio%2Fpsp2.png?alt=media&token=fca8fdbe-0d59-42ce-91e6-202d01fc269a",
-                        "https://firebasestorage.googleapis.com/v0/b/bodymx-80bc1.appspot.com/o/sevanportfolio%2Fpsp3.png?alt=media&token=44eb7820-0027-47bf-8a1e-71106d7444f6",
-                        "https://firebasestorage.googleapis.com/v0/b/bodymx-80bc1.appspot.com/o/sevanportfolio%2Fpsp5.png?alt=media&token=ea6cfae9-c95e-4bac-a5d6-bb162ff94c4b",
+                        //"https://firebasestorage.googleapis.com/v0/b/bodymx-80bc1.appspot.com/o/sevanportfolio%2Fpsp1.png?alt=media&token=40b26cba-c6f5-4561-8f6d-2c69dfa1c79c",
+                        //"https://firebasestorage.googleapis.com/v0/b/bodymx-80bc1.appspot.com/o/sevanportfolio%2Fpsp2.png?alt=media&token=fca8fdbe-0d59-42ce-91e6-202d01fc269a",
+                        //"https://firebasestorage.googleapis.com/v0/b/bodymx-80bc1.appspot.com/o/sevanportfolio%2Fpsp3.png?alt=media&token=44eb7820-0027-47bf-8a1e-71106d7444f6",
+                        //"https://firebasestorage.googleapis.com/v0/b/bodymx-80bc1.appspot.com/o/sevanportfolio%2Fpsp5.png?alt=media&token=ea6cfae9-c95e-4bac-a5d6-bb162ff94c4b",
                      ]}
                   />
                </Box>

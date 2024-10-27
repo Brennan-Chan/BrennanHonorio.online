@@ -88,7 +88,7 @@ const App = () => {
                         }
                }
             >
-               <Heading color="collaborator" margin={{ left: "small", top: "none" }} size="small">
+               <Heading color="data-scientist" margin={{ left: "small", top: "none" }} size="small">
                   B.<EvansSpan>Chan</EvansSpan>
                </Heading>
                <DarkThemeSwitch dark={dark} setDark={setDark} />
@@ -158,7 +158,7 @@ const App = () => {
                               <Paragraph color="text-paragraph" margin="none">
                                  I'm in{" "}
                                  <Text weight="bold">
-                                    <StyledSpan>Palm Springs, California!</StyledSpan>
+                                    <StyledSpan>Waco, Texas!</StyledSpan>
                                  </Text>{" "}
                                  <Text size="small">USA</Text>
                               </Paragraph>
