@@ -96,100 +96,105 @@ const App = () => {
 
             <Page kind="narrow">
                <PageContent pad={mobilePad} flex="grow">
-                  <Box align="baseline" justify="between" direction="row">
-                     <Box align="start" justify="center" gap="medium" wrap>
-                        <Box
+                  <Box align="center" justify="between" direction="row" fill="horizontal">
+                     <Box
+                        align="center"
+                        justify="center"
+                        direction="row"
+                        gap="medium"
+                        pad={{ horizontal: "large" }}
+                     >
+                        {/* TODO(Brennan): swap this placeholder for a real headshot */}
+                        <Avatar
                            align="center"
+                           flex={false}
                            justify="center"
-                           direction="row"
-                           gap="medium"
-                           pad={{ horizontal: "large" }}
-                        >
-                           {/* TODO(Brennan): swap this placeholder for a real headshot */}
-                           <Avatar
-                              align="center"
-                              flex={false}
-                              justify="center"
-                              overflow="hidden"
-                              round="full"
-                              size="2xl"
-                              src="https://ui-avatars.com/api/?name=Brennan+Chan&background=1269cc&color=fff&size=256&bold=true"
-                           />
-                           <Box align="start" justify="start" fill>
-                              <Heading margin="none">Brennan</Heading>
-                              <Heading
-                                 margin={{
-                                    left: "medium",
-                                    vertical: "none",
-                                    top: "none",
-                                    bottom: "none",
-                                 }}
-                              >
-                                 Chan
-                              </Heading>
-                           </Box>
+                           overflow="hidden"
+                           round="full"
+                           size="2xl"
+                           src="https://ui-avatars.com/api/?name=Brennan+Chan&background=1269cc&color=fff&size=256&bold=true"
+                        />
+                        <Box align="start" justify="start" fill>
+                           <Heading margin="none">Brennan</Heading>
+                           <Heading
+                              margin={{
+                                 left: "medium",
+                                 vertical: "none",
+                                 top: "none",
+                                 bottom: "none",
+                              }}
+                           >
+                              Chan
+                           </Heading>
                         </Box>
-                        <Box align="start" justify="between" wrap direction="column" gap="small">
-                           <Paragraph
-                              size="large"
-                              margin={{ vertical: "xsmall" }}
-                              color="text-paragraph"
-                           >
-                              Whats up, I'm a{" "}
-                              <StyledSpan>Data-Scientist</StyledSpan> &{" "}
-                              <StyledSpan>Statistician</StyledSpan>. When I'm not building
-                              models, I'm probably{" "}
-                              <StyledSpan>min-maxing a competitive Pokémon team</StyledSpan> or{" "}
-                              <StyledSpan>hex-editing an old JRPG</StyledSpan>.
-                           </Paragraph>
-                           <Box
-                              align="end"
-                              justify="center"
-                              direction="row"
-                              gap="xsmall"
-                              margin={{ right: "none" }}
-                              onClick={() => setLocationDrop(true)}
-                              ref={boxRef}
-                              focusIndicator={false}
-                              hoverIndicator
-                              pad="xsmall"
-                              round="xsmall"
-                              border
-                           >
-                              <Location />
-                              <Paragraph color="text-paragraph" margin="none">
-                                 I'm in{" "}
-                                 <Text weight="bold">
-                                    <StyledSpan>Berlin, Germany</StyledSpan>
-                                 </Text>{" "}
-                                 <Text size="small">— pursuing my Master's at ESMT Berlin</Text>
-                              </Paragraph>
-                           </Box>
-                        </Box>
-                        {isMobile && (
-                           <Box
-                              align="center"
-                              justify="center"
-                              flex
-                              fill="horizontal"
-                              margin={{ vertical: "small" }}
-                              focusIndicator={false}
-                           >
-                              <Button
-                                 primary
-                                 icon={<ChatOption />}
-                                 label="let's talk"
-                                 onClick={() => setContactOpen(true)}
-                              />
-                           </Box>
-                        )}
                      </Box>
                      {!isMobile && (
-                        <Box align="center" justify="center" flex fill="horizontal">
-                           <Anchor label="let's talk" onClick={() => setContactOpen(true)} />
-                        </Box>
+                        <Anchor label="let's talk" onClick={() => setContactOpen(true)} />
                      )}
                   </Box>
+                  <Box
+                     align="start"
+                     justify="start"
+                     gap="small"
+                     fill="horizontal"
+                     margin={{ top: "medium" }}
+                  >
+                     <Paragraph
+                        size="large"
+                        margin={{ vertical: "xsmall" }}
+                        color="text-paragraph"
+                        fill
+                     >
+                        Whats up, I'm a{" "}
+                        <StyledSpan>Data-Scientist</StyledSpan> &{" "}
+                        <StyledSpan>Statistician</StyledSpan>. When I'm not building
+                        models, I'm probably{" "}
+                        <StyledSpan>min-maxing a competitive Pokémon team</StyledSpan> or{" "}
+                        <StyledSpan>hex-editing an old JRPG</StyledSpan>.
+                     </Paragraph>
+                     <Box
+                        align="start"
+                        justify="center"
+                        direction="row"
+                        gap="xsmall"
+                        margin={{ right: "none" }}
+                        onClick={() => setLocationDrop(true)}
+                        ref={boxRef}
+                        focusIndicator={false}
+                        hoverIndicator
+                        pad="xsmall"
+                        round="xsmall"
+                        border
+                     >
+                        <Box flex={false} margin={{ top: "2px" }}>
+                           <Location />
+                        </Box>
+                        <Paragraph color="text-paragraph" margin="none">
+                           I'm in{" "}
+                           <Text weight="bold">
+                              <StyledSpan>Berlin, Germany</StyledSpan>
+                           </Text>{" "}
+                           <Text size="small">— pursuing my Master's at ESMT Berlin</Text>
+                        </Paragraph>
+                     </Box>
+                  </Box>
+                  {isMobile && (
+                     <Box
+                        align="center"
+                        justify="center"
+                        flex
+                        fill="horizontal"
+                        margin={{ vertical: "small" }}
+                        focusIndicator={false}
+                     >
+                        <Button
+                           primary
+                           icon={<ChatOption />}
+                           label="let's talk"
+                           onClick={() => setContactOpen(true)}
+                        />
+                     </Box>
+                  )}
                   <Box
                      align="center"
                      justify="center"
