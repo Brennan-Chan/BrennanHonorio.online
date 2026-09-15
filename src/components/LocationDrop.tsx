@@ -58,32 +58,10 @@ const LocationDrop = ({ setLocationDrop, locationDrop, boxRef }) => {
                      color="text-paragraph"
                      places={[
                         {
-                           color: "green",
-                           content: (
-                              <Box pad={{ horizontal: "small", vertical: "xsmall" }}>
-                                 <Text>Arlington, TX (home)</Text>
-                              </Box>
-                           ),
-                           dropProps: {
-                              align: { left: "right" },
-                              background: { color: "software-engineer" },
-                              margin: { left: "small" },
-                              round: "xsmall",
-                           },
-                           name: "Arlington",
-                           location: [32.7357, -97.1081],
-                           onClick: () => {
-                              // Handle click event
-                           },
-                           onHover: () => {
-                              // Handle hover event
-                           },
-                        },
-                        {
                            color: "data-scientist",
                            content: (
                               <Box pad={{ horizontal: "small", vertical: "xsmall" }}>
-                                 <Text>Berlin (ESMT, Fall 2026)</Text>
+                                 <Text>Berlin (current — ESMT, until 2028)</Text>
                               </Box>
                            ),
                            dropProps: {
@@ -94,6 +72,28 @@ const LocationDrop = ({ setLocationDrop, locationDrop, boxRef }) => {
                            },
                            name: "Berlin",
                            location: [52.52, 13.405],
+                           onClick: () => {
+                              // Handle click event
+                           },
+                           onHover: () => {
+                              // Handle hover event
+                           },
+                        },
+                        {
+                           color: "green",
+                           content: (
+                              <Box pad={{ horizontal: "small", vertical: "xsmall" }}>
+                                 <Text>Arlington, TX (hometown)</Text>
+                              </Box>
+                           ),
+                           dropProps: {
+                              align: { left: "right" },
+                              background: { color: "software-engineer" },
+                              margin: { left: "small" },
+                              round: "xsmall",
+                           },
+                           name: "Arlington",
+                           location: [32.7357, -97.1081],
                            onClick: () => {
                               // Handle click event
                            },

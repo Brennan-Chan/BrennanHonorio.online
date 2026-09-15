@@ -160,9 +160,9 @@ const App = () => {
                               <Paragraph color="text-paragraph" margin="none">
                                  I'm in{" "}
                                  <Text weight="bold">
-                                    <StyledSpan>Arlington, Texas</StyledSpan>
+                                    <StyledSpan>Berlin, Germany</StyledSpan>
                                  </Text>{" "}
-                                 <Text size="small">— headed to Berlin this fall</Text>
+                                 <Text size="small">— pursuing my Master's at ESMT Berlin</Text>
                               </Paragraph>
                            </Box>
                         </Box>
@@ -212,9 +212,9 @@ const App = () => {
                            fill
                            color="text-paragraph"
                         >
-                           I'm a recent <StyledSpan>Baylor University</StyledSpan> grad
-                           (Data Science &amp; Statistics), heading to{" "}
-                           <StyledSpan>ESMT Berlin</StyledSpan> for grad school this fall. My
+                           I'm a <StyledSpan>Baylor University</StyledSpan> grad
+                           (Data Science &amp; Statistics), now pursuing my{" "}
+                           <StyledSpan>Master's at ESMT Berlin</StyledSpan> (expected 2028). My
                            background spans <StyledSpan>medical AI research</StyledSpan>,{" "}
                            <StyledSpan>front-end web development</StyledSpan>, and{" "}
                            <StyledSpan>statistical modeling</StyledSpan> — at the University of

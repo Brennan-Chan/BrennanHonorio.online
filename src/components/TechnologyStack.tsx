@@ -25,9 +25,9 @@ export const TechIcon = styled.div`
    }
 `;
 
-// Languages/tools that don't have a logo asset in TechnologySVGList yet, shown as plain
-// tags instead of icons: SQL (Oracle), HTML, PHP, R, C++, Assembly (x86), SAS, AWS, GCC,
-// Azure, PyTorch, TensorFlow, Keras, OpenCV.
+// Languages, tools, and practices that don't have a logo asset in TechnologySVGList yet
+// (or aren't a "language" at all), shown as plain tags instead of icons. Mostly pulled
+// straight from the CBORD and CU Anschutz internships, plus coursework/skills.
 const otherSkills = [
    "SQL (Oracle)",
    "HTML",
@@ -43,6 +43,14 @@ const otherSkills = [
    "TensorFlow",
    "Keras",
    "OpenCV",
+   "Figma (UI/UX)",
+   "Agile/Scrum",
+   "Webhooks",
+   "Computer Vision",
+   "Predictive Modeling",
+   "Statistical Modeling",
+   "Database Management",
+   "OOP",
 ];
 
 function TechnologyStack() {

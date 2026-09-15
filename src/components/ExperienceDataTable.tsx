@@ -40,6 +40,7 @@ import useMediaQuery from "../hooks/UseMediaQuery";
 import { projects } from "../utils/Projects";
 import { BorderType } from "grommet/utils";
 
+// Fixed width so every tag's left edge lines up in a column, regardless of label length.
 const RoleTag = ({ role }) => {
    return (
       <Box
@@ -49,6 +50,7 @@ const RoleTag = ({ role }) => {
          pad={{ horizontal: "4px" }}
          background={role.color}
          wrap={false}
+         width="170px"
       >
          <Text truncate={true}>{role.name}</Text>
       </Box>
