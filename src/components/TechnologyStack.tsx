@@ -28,30 +28,63 @@ export const TechIcon = styled.div`
 // Languages, tools, and practices that don't have a logo asset in TechnologySVGList yet
 // (or aren't a "language" at all), shown as plain tags instead of icons. Mostly pulled
 // straight from the CBORD and CU Anschutz internships, plus coursework/skills.
-const otherSkills = [
-   "SQL (Oracle)",
-   "HTML",
-   "PHP",
-   "R",
-   "C++",
-   "Assembly (x86)",
-   "SAS",
-   "AWS",
-   "GCC",
-   "Azure",
-   "PyTorch",
-   "TensorFlow",
-   "Keras",
-   "OpenCV",
-   "Figma (UI/UX)",
-   "Agile/Scrum",
-   "Webhooks",
-   "Computer Vision",
-   "Predictive Modeling",
-   "Statistical Modeling",
-   "Database Management",
-   "OOP",
+// Each has a level - "skilled" > "proficient" (default) > "familiar" - styled below.
+type SkillLevel = "skilled" | "proficient" | "familiar";
+type OtherSkill = { name: string; level?: SkillLevel };
+
+const otherSkills: OtherSkill[] = [
+   { name: "SQL (Oracle)", level: "skilled" },
+   { name: "HTML" },
+   { name: "PHP" },
+   { name: "R", level: "skilled" },
+   { name: "C++", level: "skilled" },
+   { name: "Assembly (x86)", level: "proficient" },
+   { name: "SAS" },
+   { name: "AWS" },
+   { name: "GCC" },
+   { name: "Azure" },
+   { name: "PyTorch" },
+   { name: "TensorFlow" },
+   { name: "Keras" },
+   { name: "OpenCV" },
+   { name: "Figma (UI/UX)" },
+   { name: "Agile/Scrum" },
+   { name: "Webhooks" },
+   { name: "Computer Vision" },
+   { name: "Predictive Modeling" },
+   { name: "Statistical Modeling" },
+   { name: "Database Management" },
+   { name: "OOP" },
+   // Data visualization
+   { name: "Tableau", level: "familiar" },
+   { name: "Matplotlib" },
+   { name: "Seaborn" },
+   { name: "Power BI" },
 ];
+
+const skillLevelStyle: Record<
+   SkillLevel,
+   { borderColor: string; borderStyle: "solid" | "dashed"; textColor: string; weight: "bold" | "normal" }
+> = {
+   skilled: {
+      borderColor: "data-scientist",
+      borderStyle: "solid",
+      textColor: "text-strong",
+      weight: "bold",
+   },
+   proficient: {
+      borderColor: "border",
+      borderStyle: "solid",
+      textColor: "text-paragraph",
+      weight: "normal",
+   },
+   familiar: {
+      borderColor: "text-xweak",
+      borderStyle: "dashed",
+      textColor: "text-xweak",
+      weight: "normal",
+   },
+};
 
 function TechnologyStack() {
    const [isFiltered, setIsFiltered] = useState(true);
@@ -118,19 +151,22 @@ function TechnologyStack() {
                </Drop>
             )}
          </Grid>
-         <Box direction="row" gap="xsmall" wrap>
-            {otherSkills.map((skill) => (
-               <Box
-                  key={skill}
-                  pad={{ horizontal: "xsmall", vertical: "2px" }}
-                  round="xsmall"
-                  border={{ color: "border", size: "1px" }}
-               >
-                  <Text size="small" color="text-paragraph">
-                     {skill}
-                  </Text>
-               </Box>
-            ))}
+         <Box direction="row" gap="xsmall" wrap style={{ rowGap: "12px" }}>
+            {otherSkills.map((skill) => {
+               const tier = skillLevelStyle[skill.level ?? "proficient"];
+               return (
+                  <Box
+                     key={skill.name}
+                     pad={{ horizontal: "xsmall", vertical: "2px" }}
+                     round="xsmall"
+                     border={{ color: tier.borderColor, size: "1px", style: tier.borderStyle }}
+                  >
+                     <Text size="small" color={tier.textColor} weight={tier.weight}>
+                        {skill.name}
+                     </Text>
+                  </Box>
+               );
+            })}
          </Box>
       </Box>
    );

@@ -148,9 +148,8 @@ const App = () => {
                         Whats up, I'm a{" "}
                         <StyledSpan>Data-Scientist</StyledSpan> &{" "}
                         <StyledSpan>Statistician</StyledSpan>. When I'm not building
-                        models, I'm probably{" "}
-                        <StyledSpan>min-maxing a competitive Pokémon team</StyledSpan> or{" "}
-                        <StyledSpan>hex-editing an old JRPG</StyledSpan>.
+                        models, I'm probably at a{" "}
+                        <StyledSpan>SSBU local</StyledSpan>.
                      </Paragraph>
                      <Box
                         align="start"
@@ -222,11 +221,12 @@ const App = () => {
                            <StyledSpan>Master's at ESMT Berlin</StyledSpan> (expected 2028). My
                            background spans <StyledSpan>medical AI research</StyledSpan>,{" "}
                            <StyledSpan>front-end web development</StyledSpan>, and{" "}
-                           <StyledSpan>statistical modeling</StyledSpan> — at the University of
+                           <StyledSpan>statistical modeling</StyledSpan> - at the University of
                            Colorado School of Medicine I built{" "}
                            <StyledSpan>computer-vision models</StyledSpan> to help predict
                            surgical actions in real time, and at CBORD I shipped front-end
-                           features in Agile sprints. I like turning{" "}
+                           features and <StyledSpan>UI/UX design work</StyledSpan> in Agile
+                           sprints. I like turning{" "}
                            <StyledSpan>messy data</StyledSpan> into models and interfaces that
                            actually help people.
                         </Paragraph>
