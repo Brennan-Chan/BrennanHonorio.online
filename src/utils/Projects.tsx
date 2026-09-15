@@ -34,7 +34,7 @@ Developed and refined a VideoMAE action-recognition model to predict surgical ac
       name: "Competitive Pokémon Prediction Model",
       url: "",
       roles: [{ name: "Personal Project", color: { color: "data-scientist", opacity: "strong" } }],
-      period: "2023",
+      period: "2023 - 2023",
       techStack: [{ name: "Python", icon: <Python /> }],
       img: "",
       description: `Built a machine learning model to predict outcomes in competitive Pokémon battles, which contributed to reaching top-ranking status in the 2023 competitive metagame. A good excuse to apply predictive modeling to something purely for fun.`,
