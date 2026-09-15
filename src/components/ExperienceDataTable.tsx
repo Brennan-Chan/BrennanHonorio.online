@@ -77,7 +77,11 @@ const ProjectBox = ({ project, onClick }) => {
          {isMobile ? (
             <Box direction="column" align="start">
                <Box align="center" justify="center" direction="row" gap="xsmall">
-                  <Image width="20px" height="20px" src={project.img}></Image>
+                  {project.img ? (
+                     <Image width="20px" height="20px" src={project.img}></Image>
+                  ) : (
+                     <Technology size="small" />
+                  )}
                   <Text size="large" weight="bold">
                      {project.name}
                   </Text>
@@ -99,7 +103,11 @@ const ProjectBox = ({ project, onClick }) => {
                round="xsmall"
             >
                <Box align="center" justify="center" direction="row" gap="xsmall">
-                  <Image width="20px" height="20px" src={project.img}></Image>
+                  {project.img ? (
+                     <Image width="20px" height="20px" src={project.img}></Image>
+                  ) : (
+                     <Technology size="small" />
+                  )}
                   <Text>{project.name}</Text>
                </Box>
                <Box align="center" justify="between" direction="row" gap="small">
@@ -150,7 +158,11 @@ const SelectLayer = ({ project, setSelectedProject }) => {
       >
          <Box flex="grow" overflow="auto">
             <Box align="start" justify="center" width="medium" pad="medium">
-               <Image width="32px" height="32px" src={project.img}></Image>
+               {project.img ? (
+                  <Image width="32px" height="32px" src={project.img}></Image>
+               ) : (
+                  <Technology size="medium" />
+               )}
                <Heading>{project.name}</Heading>
             </Box>
             <Box align="start" justify="between" gap="medium" overflow="auto" flex="grow">
@@ -172,27 +184,29 @@ const SelectLayer = ({ project, setSelectedProject }) => {
                      </Box>
                   </Box>
 
-                  <Box
-                     align="start"
-                     justify="between"
-                     fill="horizontal"
-                     direction="row"
-                     pad="small"
-                  >
-                     <Box align="start" justify="start" direction="row" gap="small">
-                        <Link />
-                        <Text>Link</Text>
+                  {project.url && (
+                     <Box
+                        align="start"
+                        justify="between"
+                        fill="horizontal"
+                        direction="row"
+                        pad="small"
+                     >
+                        <Box align="start" justify="start" direction="row" gap="small">
+                           <Link />
+                           <Text>Link</Text>
+                        </Box>
+                        <Box align="center" justify="center" wrap>
+                           <Anchor
+                              onClick={() => {
+                                 window.open("https://www." + project.url);
+                              }}
+                           >
+                              {project.url}
+                           </Anchor>
+                        </Box>
                      </Box>
-                     <Box align="center" justify="center" wrap>
-                        <Anchor
-                           onClick={() => {
-                              window.open("https://www." + project.url);
-                           }}
-                        >
-                           {project.url}
-                        </Anchor>
-                     </Box>
-                  </Box>
+                  )}
                   <Box
                      align="start"
                      justify="between"

@@ -116,7 +116,7 @@ const theme = {
          light: "#FFFFFF",
       },
    },
-   email: "plaidroni@gmail.com",
+   email: "brennanhonorio@gmail.com",
    date: "2023-07-06T18:00:45.111Z",
 };
 

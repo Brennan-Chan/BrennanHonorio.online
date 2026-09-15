@@ -11,6 +11,6 @@ export const StyledHeaderSpan = styled.span`
    color: #313131;
 `;
 
-export const EvansSpan = styled.span`
+export const AccentSpan = styled.span`
    color: #6d9ac7;
 `;

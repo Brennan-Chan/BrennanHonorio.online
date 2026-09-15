@@ -1,24 +1,6 @@
-import { Box, Drop, Grid, Text } from "grommet";
 import React, { useState } from "react";
-import {
-   Kotlin,
-   Lua,
-   Python,
-   Typescript,
-   Javascript,
-   CSS,
-   CSharp,
-   SQLite,
-   Git,
-   Java,
-   Swift,
-   NodeJS,
-   Heroku,
-   React as ReactIcon,
-   XCode,
-   AndroidStudio,
-   MongoDB,
-} from "../utils/TechnologySVGList";
+import { Box, Drop, Grid, Text } from "grommet";
+import { Python, Javascript, CSS, Git, Java, MongoDB } from "../utils/TechnologySVGList";
 import styled from "styled-components";
 
 export type TechIconProps = {
@@ -42,6 +24,27 @@ export const TechIcon = styled.div`
             : "none"};
    }
 `;
+
+// Languages/tools that don't have a logo asset in TechnologySVGList yet, shown as plain
+// tags instead of icons: SQL (Oracle), HTML, PHP, R, C++, Assembly (x86), SAS, AWS, GCC,
+// Azure, PyTorch, TensorFlow, Keras, OpenCV.
+const otherSkills = [
+   "SQL (Oracle)",
+   "HTML",
+   "PHP",
+   "R",
+   "C++",
+   "Assembly (x86)",
+   "SAS",
+   "AWS",
+   "GCC",
+   "Azure",
+   "PyTorch",
+   "TensorFlow",
+   "Keras",
+   "OpenCV",
+];
+
 function TechnologyStack() {
    const [isFiltered, setIsFiltered] = useState(true);
    const [hoveredIcon, setHoveredIcon] = useState<TechIconProps | null>(null);
@@ -59,22 +62,11 @@ function TechnologyStack() {
    };
 
    const iconList = [
+      { name: "Python", icon: <Python />, isGolden: true },
       { name: "Java", icon: <Java />, isGolden: true },
-      { name: "Swift", icon: <Swift />, isGolden: true },
-      { name: "Lua", icon: <Lua />, isGolden: true },
-      { name: "Typescript", icon: <Typescript />, isGolden: true },
-      { name: "CSS", icon: <CSS />, isGolden: true },
-      { name: "React", icon: <ReactIcon />, isGolden: true },
-      { name: "Kotlin", icon: <Kotlin />, isGolden: true },
-      { name: "Python", icon: <Python /> },
-      { name: "Javascript", icon: <Javascript /> },
-      { name: "Git", icon: <Git /> },
-      { name: "NodeJS", icon: <NodeJS /> },
-      { name: "Heroku", icon: <Heroku /> },
-      { name: "CSharp", icon: <CSharp /> },
-      { name: "SQLite", icon: <SQLite /> },
-      { name: "XCode", icon: <XCode /> },
-      { name: "AndroidStudio", icon: <AndroidStudio /> },
+      { name: "Git", icon: <Git />, isGolden: true },
+      { name: "JavaScript", icon: <Javascript /> },
+      { name: "CSS", icon: <CSS /> },
       { name: "MongoDB", icon: <MongoDB /> },
    ];
 
@@ -87,36 +79,52 @@ function TechnologyStack() {
    }, [hoveredIcon]);
 
    return (
-      <Grid columns={{ size: "35px", count: "fit" }} gap="xsmall">
-         {iconList.map((item, i) => (
-            <Box onMouseOver={(e) => handleMouseOver(e, item)} onMouseOut={handleMouseOut}>
-               <TechIcon key={i} isGolden={item.isGolden} isFiltered={isFiltered}>
-                  {item.icon}
-               </TechIcon>
-            </Box>
-         ))}
-         {showDrop && hoveredIcon && (
-            <Drop align={{ bottom: "top" }} target={hoverRef} plain overflow="hidden">
-               <Box
-                  pad="xsmall"
-                  background="dark-3"
-                  round={{ size: "xsmall" }}
-                  margin="xsmall"
-                  style={{
-                     background: "rgba(139, 139, 139, 0.95)",
-                     backdropFilter: "blur(5.5px)",
-                     WebkitBackdropFilter: "blur(8.5px)",
-                     border: "1px solid rgba(255, 255, 255, 0.18)",
-                  }}
-               >
-                  <Box direction="column" align="center">
-                     <Text weight="bold">{hoveredIcon.name}</Text>
-                     {hoveredIcon.isGolden ? <Text>Skilled</Text> : <Text>Proficient</Text>}
-                  </Box>
+      <Box gap="small">
+         <Grid columns={{ size: "35px", count: "fit" }} gap="xsmall">
+            {iconList.map((item, i) => (
+               <Box onMouseOver={(e) => handleMouseOver(e, item)} onMouseOut={handleMouseOut}>
+                  <TechIcon key={i} isGolden={item.isGolden} isFiltered={isFiltered}>
+                     {item.icon}
+                  </TechIcon>
                </Box>
-            </Drop>
-         )}
-      </Grid>
+            ))}
+            {showDrop && hoveredIcon && (
+               <Drop align={{ bottom: "top" }} target={hoverRef} plain overflow="hidden">
+                  <Box
+                     pad="xsmall"
+                     background="dark-3"
+                     round={{ size: "xsmall" }}
+                     margin="xsmall"
+                     style={{
+                        background: "rgba(139, 139, 139, 0.95)",
+                        backdropFilter: "blur(5.5px)",
+                        WebkitBackdropFilter: "blur(8.5px)",
+                        border: "1px solid rgba(255, 255, 255, 0.18)",
+                     }}
+                  >
+                     <Box direction="column" align="center">
+                        <Text weight="bold">{hoveredIcon.name}</Text>
+                        {hoveredIcon.isGolden ? <Text>Skilled</Text> : <Text>Proficient</Text>}
+                     </Box>
+                  </Box>
+               </Drop>
+            )}
+         </Grid>
+         <Box direction="row" gap="xsmall" wrap>
+            {otherSkills.map((skill) => (
+               <Box
+                  key={skill}
+                  pad={{ horizontal: "xsmall", vertical: "2px" }}
+                  round="xsmall"
+                  border={{ color: "border", size: "1px" }}
+               >
+                  <Text size="small" color="text-paragraph">
+                     {skill}
+                  </Text>
+               </Box>
+            ))}
+         </Box>
+      </Box>
    );
 }
 

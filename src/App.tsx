@@ -29,7 +29,7 @@ import {
    ChatOption,
 } from "grommet-icons";
 import theme from "./theme";
-import { EvansSpan, StyledHeaderSpan, StyledSpan } from "./utils/StyledSpan";
+import { AccentSpan, StyledHeaderSpan, StyledSpan } from "./utils/StyledSpan";
 import PostCardLocation from "./components/HelloFromPS";
 import styled from "styled-components";
 import ContactLayer from "./components/ContactLayer";
@@ -46,7 +46,7 @@ const AppContainer = styled.div`
 `;
 
 const App = () => {
-   const [contactSevan, setContactSevan] = React.useState(false);
+   const [contactOpen, setContactOpen] = React.useState(false);
    const [dark, setDark] = React.useState(true);
 
    // Location Drop
@@ -89,7 +89,7 @@ const App = () => {
                }
             >
                <Heading color="data-scientist" margin={{ left: "small", top: "none" }} size="small">
-                  B.<EvansSpan>Chan</EvansSpan>
+                  B.<AccentSpan>Chan</AccentSpan>
                </Heading>
                <DarkThemeSwitch dark={dark} setDark={setDark} />
             </Header>
@@ -105,6 +105,7 @@ const App = () => {
                            gap="medium"
                            pad={{ horizontal: "large" }}
                         >
+                           {/* TODO(Brennan): swap this placeholder for a real headshot */}
                            <Avatar
                               align="center"
                               flex={false}
@@ -112,7 +113,7 @@ const App = () => {
                               overflow="hidden"
                               round="full"
                               size="2xl"
-                              src="https://firebasestorage.googleapis.com/v0/b/bodymx-80bc1.appspot.com/o/profilePictures%2FW0xdrFJk8BPiLv93iwv5n7sZleH2?alt=media&token=fd5d2a17-462f-4350-ba6c-6fa10c3b47e9"
+                              src="https://ui-avatars.com/api/?name=Brennan+Chan&background=1269cc&color=fff&size=256&bold=true"
                            />
                            <Box align="start" justify="start" fill>
                               <Heading margin="none">Brennan</Heading>
@@ -136,9 +137,10 @@ const App = () => {
                            >
                               Whats up, I'm a{" "}
                               <StyledSpan>Data-Scientist</StyledSpan> &{" "}
-                              <StyledSpan>Statistician</StyledSpan>. I enjoy{" "}
-                              <StyledSpan>groovy house music</StyledSpan> and{" "}
-                              <StyledSpan>Creating Spreadsheets for Satisfactory!</StyledSpan>
+                              <StyledSpan>Statistician</StyledSpan>. When I'm not building
+                              models, I'm probably{" "}
+                              <StyledSpan>min-maxing a competitive Pokémon team</StyledSpan> or{" "}
+                              <StyledSpan>hex-editing an old JRPG</StyledSpan>.
                            </Paragraph>
                            <Box
                               align="end"
@@ -158,9 +160,9 @@ const App = () => {
                               <Paragraph color="text-paragraph" margin="none">
                                  I'm in{" "}
                                  <Text weight="bold">
-                                    <StyledSpan>Waco, Texas!</StyledSpan>
+                                    <StyledSpan>Arlington, Texas</StyledSpan>
                                  </Text>{" "}
-                                 <Text size="small">USA</Text>
+                                 <Text size="small">— headed to Berlin this fall</Text>
                               </Paragraph>
                            </Box>
                         </Box>
@@ -177,14 +179,14 @@ const App = () => {
                                  primary
                                  icon={<ChatOption />}
                                  label="let's talk"
-                                 onClick={() => setContactSevan(true)}
+                                 onClick={() => setContactOpen(true)}
                               />
                            </Box>
                         )}
                      </Box>
                      {!isMobile && (
                         <Box align="center" justify="center" flex fill="horizontal">
-                           <Anchor label="let's talk" onClick={() => setContactSevan(true)} />
+                           <Anchor label="let's talk" onClick={() => setContactOpen(true)} />
                         </Box>
                      )}
                   </Box>
@@ -210,17 +212,18 @@ const App = () => {
                            fill
                            color="text-paragraph"
                         >
-                           With a love for <StyledSpan>coding</StyledSpan> rivaled only by my love
-                           for
-                           <StyledSpan> coffee</StyledSpan>, I've spent a{" "}
-                           <StyledSpan>decade</StyledSpan> turning caffeine and code into innovative{" "}
-                           <StyledSpan>software solutions</StyledSpan>. I take pride in{" "}
-                           <StyledSpan>crafting user experiences</StyledSpan> that simplify
-                           complexity, foster engagement, and{" "}
-                           <StyledSpan>enhance overall usability</StyledSpan>. Striking a balance
-                           between aesthetics, functionality, and user-centric principles, my work
-                           symbolizes the essence of{" "}
-                           <StyledSpan>impactful digital design</StyledSpan>.
+                           I'm a recent <StyledSpan>Baylor University</StyledSpan> grad
+                           (Data Science &amp; Statistics), heading to{" "}
+                           <StyledSpan>ESMT Berlin</StyledSpan> for grad school this fall. My
+                           background spans <StyledSpan>medical AI research</StyledSpan>,{" "}
+                           <StyledSpan>front-end web development</StyledSpan>, and{" "}
+                           <StyledSpan>statistical modeling</StyledSpan> — at the University of
+                           Colorado School of Medicine I built{" "}
+                           <StyledSpan>computer-vision models</StyledSpan> to help predict
+                           surgical actions in real time, and at CBORD I shipped front-end
+                           features in Agile sprints. I like turning{" "}
+                           <StyledSpan>messy data</StyledSpan> into models and interfaces that
+                           actually help people.
                         </Paragraph>
                      </Box>
                   </Box>
@@ -255,10 +258,10 @@ const App = () => {
                            to respond.
                         </Paragraph>
                      </Box>
-                     <ContactGrid setContactSevan={setContactSevan} />
+                     <ContactGrid setContactOpen={setContactOpen} />
                   </Box>
                </PageContent>
-               {contactSevan && <ContactLayer setContactSevan={setContactSevan} />}
+               {contactOpen && <ContactLayer setContactOpen={setContactOpen} />}
                {locationDrop && (
                   <LocationDrop
                      setLocationDrop={setLocationDrop}

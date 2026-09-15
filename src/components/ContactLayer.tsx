@@ -1,10 +1,11 @@
 import { Layer, Box, Text, TextInput, TextArea, Button } from "grommet";
 import { Down, Send, User, MailOption } from "grommet-icons";
 import React from "react";
-import emailjs from "emailjs-com";
 import { useToast } from "../utils/ToastUtils";
 
-const ContactLayer = ({ setContactSevan }) => {
+const CONTACT_EMAIL = "brennanhonorio@gmail.com";
+
+const ContactLayer = ({ setContactOpen }) => {
    const { showToast } = useToast();
    const [submitting, setSubmitting] = React.useState(false);
 
@@ -16,25 +17,39 @@ const ContactLayer = ({ setContactSevan }) => {
          duration: duration,
       });
    };
+
+   // Opens the visitor's own email client with the message pre-filled, instead of
+   // relying on a third-party form-submission service (which needs its own account).
    function sendEmail(e) {
       e.preventDefault();
+      setSubmitting(true);
 
-      emailjs.sendForm("service_l2l5ura", "template_t6tgs4a", e.target, "b_81Tq3G9AueC0ts4").then(
-         (result) => {
-            setSubmitting(false);
-            handleToastNotif("info", "Email sent!", "I'll get back to you soon :)", 6500);
-            setContactSevan(false);
-         },
-         (error) => {
-            setSubmitting(false);
-            handleToastNotif("critical", "Uh oh..", "Critical error! Try again later.", 6500);
-         },
+      const name = (e.target.from_name.value || "").trim();
+      const fromEmail = (e.target.from_email.value || "").trim();
+      const message = (e.target.message.value || "").trim();
+
+      const subject = encodeURIComponent(`Portfolio message from ${name || "your site"}`);
+      const body = encodeURIComponent(
+         `${message}\n\n—\nFrom: ${name || "(no name given)"}\nReply to: ${
+            fromEmail || "(no email given)"
+         }`,
       );
+
+      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+
+      setSubmitting(false);
+      handleToastNotif(
+         "info",
+         "Opening your email app...",
+         "Finish sending it from there!",
+         6500,
+      );
+      setContactOpen(false);
    }
 
    return (
       <Layer
-         onClickOutside={() => setContactSevan(false)}
+         onClickOutside={() => setContactOpen(false)}
          animate
          modal
          responsive={false}
@@ -51,8 +66,8 @@ const ContactLayer = ({ setContactSevan }) => {
                   fill="horizontal"
                   border={{ side: "bottom" }}
                >
-                  <Down size="medium" color="border" onClick={() => setContactSevan(false)}></Down>
-                  <Text>Contact Sevan</Text>
+                  <Down size="medium" color="border" onClick={() => setContactOpen(false)}></Down>
+                  <Text>Get in touch</Text>
                </Box>
                <Box align="center" justify="center" gap="small" fill="horizontal">
                   <Box align="start" justify="start" direction="row" gap="small" fill="horizontal">
@@ -81,14 +96,7 @@ const ContactLayer = ({ setContactSevan }) => {
                   />
                </Box>
                <Box align="end" justify="center" fill="horizontal">
-                  <Button
-                     type="submit"
-                     label="Send it"
-                     icon={<Send />}
-                     primary
-                     busy={submitting}
-                     onClick={() => setSubmitting(true)}
-                  />
+                  <Button type="submit" label="Send it" icon={<Send />} primary busy={submitting} />
                </Box>
             </Box>
          </form>

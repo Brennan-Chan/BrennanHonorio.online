@@ -2,7 +2,7 @@ import React from "react";
 import { Grid, Box, Text, AnchorType, Anchor } from "grommet";
 import { Linkedin, Mail, Github } from "grommet-icons";
 import { useToast } from "../utils/ToastUtils";
-function ContactGrid({ setContactSevan }) {
+function ContactGrid({ setContactOpen }) {
    const { showToast } = useToast();
 
    const handleToastNotif = (alertLevel, label, description, duration, actions) => {
@@ -27,8 +27,9 @@ function ContactGrid({ setContactSevan }) {
             gap="small"
             round="xsmall"
             onClick={() => {
-               window.open("https://www.linkedin.com/in/sevanevans", "_blank");
-               handleToastNotif("normal", "Redirecting...", "Taking you to Linkedin!", 5000, [
+               // TODO(Brennan): confirm this is your real LinkedIn URL
+               window.open("https://www.linkedin.com/in/brennan-chan-3a434b208/", "_blank");
+               handleToastNotif("normal", "Redirecting...", "Taking you to LinkedIn!", 5000, [
                   {
                      onClick: () => {},
                      label: "Let's go!",
@@ -39,7 +40,7 @@ function ContactGrid({ setContactSevan }) {
             <Box align="center" justify="center" direction="row" gap="small">
                <Linkedin />
                <Text weight="normal" size="large">
-                  Sevan Evans
+                  Brennan Chan
                </Text>
             </Box>
          </Box>
@@ -53,12 +54,12 @@ function ContactGrid({ setContactSevan }) {
             direction="row"
             gap="small"
             round="xsmall"
-            onClick={() => setContactSevan(true)}
+            onClick={() => setContactOpen(true)}
          >
             <Box align="center" justify="center" direction="row" gap="small">
                <Mail />
                <Text weight="normal" size="large">
-                  sevanplusevans@gmail.com
+                  brennanhonorio@gmail.com
                </Text>
             </Box>
          </Box>
@@ -73,8 +74,8 @@ function ContactGrid({ setContactSevan }) {
             gap="small"
             round="xsmall"
             onClick={() => {
-               window.open("https://www.github.com/plaidroni", "_blank");
-               handleToastNotif("normal", "Redirecting...", "Taking you to Github!", 5000, [
+               window.open("https://www.github.com/Brennan-Chan", "_blank");
+               handleToastNotif("normal", "Redirecting...", "Taking you to GitHub!", 5000, [
                   {
                      onClick: () => {},
                      label: "Let's go!",
@@ -85,7 +86,7 @@ function ContactGrid({ setContactSevan }) {
             <Box align="center" justify="center" direction="row" gap="small">
                <Github />
                <Text weight="normal" size="large">
-                  @plaidroni
+                  @Brennan-Chan
                </Text>
             </Box>
          </Box>

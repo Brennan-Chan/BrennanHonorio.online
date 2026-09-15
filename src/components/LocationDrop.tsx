@@ -61,7 +61,7 @@ const LocationDrop = ({ setLocationDrop, locationDrop, boxRef }) => {
                            color: "green",
                            content: (
                               <Box pad={{ horizontal: "small", vertical: "xsmall" }}>
-                                 <Text>Waco</Text>
+                                 <Text>Arlington, TX (home)</Text>
                               </Box>
                            ),
                            dropProps: {
@@ -70,8 +70,8 @@ const LocationDrop = ({ setLocationDrop, locationDrop, boxRef }) => {
                               margin: { left: "small" },
                               round: "xsmall",
                            },
-                           name: "Waco",
-                           location: [31.559814, -97.141800],
+                           name: "Arlington",
+                           location: [32.7357, -97.1081],
                            onClick: () => {
                               // Handle click event
                            },
@@ -79,7 +79,28 @@ const LocationDrop = ({ setLocationDrop, locationDrop, boxRef }) => {
                               // Handle hover event
                            },
                         },
-                        // Add more places as needed
+                        {
+                           color: "data-scientist",
+                           content: (
+                              <Box pad={{ horizontal: "small", vertical: "xsmall" }}>
+                                 <Text>Berlin (ESMT, Fall 2026)</Text>
+                              </Box>
+                           ),
+                           dropProps: {
+                              align: { left: "right" },
+                              background: { color: "data-scientist" },
+                              margin: { left: "small" },
+                              round: "xsmall",
+                           },
+                           name: "Berlin",
+                           location: [52.52, 13.405],
+                           onClick: () => {
+                              // Handle click event
+                           },
+                           onHover: () => {
+                              // Handle hover event
+                           },
+                        },
                      ]}
                   />
                   {/*TODO: might want to change the postcard location*/}
