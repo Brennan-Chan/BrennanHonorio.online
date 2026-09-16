@@ -93,7 +93,7 @@ const ProjectBox = ({ project, onClick }) => {
                   {project.roles &&
                      project.roles.map((role, index) => <RoleTag key={index} role={role} />)}
                </Box>
-               <Text truncate={true}>{project.period}</Text>
+               <Text>{project.period}</Text>
             </Box>
          ) : (
             <Box
@@ -116,7 +116,12 @@ const ProjectBox = ({ project, onClick }) => {
                   <Text truncate={true}>{project.url}</Text>
                   {project.roles &&
                      project.roles.map((role, index) => <RoleTag key={index} role={role} />)}
-                  <Text truncate={true}>{project.period}</Text>
+                  {/* Fixed min-width (not truncated) so the RoleTag column lines up
+                      regardless of how long the period string is ("2023" vs
+                      "2022 – 2025", etc), without ever clipping the date text. */}
+                  <Box width={{ min: "110px" }} align="end" flex={false}>
+                     <Text>{project.period}</Text>
+                  </Box>
                </Box>
             </Box>
          )}

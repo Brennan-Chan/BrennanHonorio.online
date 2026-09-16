@@ -94,7 +94,7 @@ const App = () => {
                <DarkThemeSwitch dark={dark} setDark={setDark} />
             </Header>
 
-            <Page kind="narrow">
+            <Page kind="narrow" alignSelf="start">
                <PageContent pad={mobilePad} flex="grow">
                   <Box align="center" justify="between" direction="row" fill="horizontal">
                      <Box
@@ -104,7 +104,6 @@ const App = () => {
                         gap="medium"
                         pad={{ horizontal: "large" }}
                      >
-                        {/* TODO(Brennan): swap this placeholder for a real headshot */}
                         <Avatar
                            align="center"
                            flex={false}
@@ -112,7 +111,7 @@ const App = () => {
                            overflow="hidden"
                            round="full"
                            size="2xl"
-                           src="https://ui-avatars.com/api/?name=Brennan+Chan&background=1269cc&color=fff&size=256&bold=true"
+                           src="/images/profile-photo.jpg"
                         />
                         <Box align="start" justify="start" fill>
                            <Heading margin="none">Brennan</Heading>
