@@ -111,7 +111,7 @@ const App = () => {
                            overflow="hidden"
                            round="full"
                            size="2xl"
-                           src="/images/profile-photo.jpg"
+                           src={process.env.PUBLIC_URL + "/images/profile-photo.jpg"}
                         />
                         <Box align="start" justify="start" fill>
                            <Heading margin="none">Brennan</Heading>
