@@ -163,7 +163,10 @@ const SelectLayer = ({ project, setSelectedProject }) => {
          onClickOutside={() => setSelectedProject(null)}
          margin={{ left: "large" }}
       >
-         <Box flex="grow" overflow="auto">
+         {/* height="100%" (resolved against the Layer's fixed viewport height, since
+             flex="grow" alone doesn't give this element a bound to clip against) is
+             what actually makes overflow="auto" produce a scrollbar here. */}
+         <Box height="100%" overflow="auto">
             <Box align="start" justify="center" width="medium" pad="medium">
                {project.img ? (
                   <Image width="32px" height="32px" src={project.img}></Image>
@@ -172,7 +175,7 @@ const SelectLayer = ({ project, setSelectedProject }) => {
                )}
                <Heading>{project.name}</Heading>
             </Box>
-            <Box align="start" justify="between" gap="medium" overflow="auto" flex="grow">
+            <Box align="start" justify="between" gap="medium">
                <Box align="start" justify="start" gap="medium" fill="horizontal" pad="medium">
                   <Box
                      align="start"
