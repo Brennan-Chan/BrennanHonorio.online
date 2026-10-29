@@ -1,4 +1,5 @@
 import { Java, Git, Python, Javascript, CSS } from "./TechnologySVGList";
+import { Terminal, Cpu, ShieldSecurity } from "grommet-icons";
 
 export const projects = [
    {
@@ -29,6 +30,20 @@ Developed and refined a VideoMAE action-recognition model to predict surgical ac
       ],
       img: "",
       description: `Developed front-end web applications and interfaces, working in Agile sprints to hit milestones on time. Contributed to back-end data processing using Oracle SQL to support system integration, and led front-end projects involving web design and webhooks, with an emphasis on team collaboration.`,
+   },
+   {
+      name: "DDoS Classification Analysis",
+      url: "",
+      roles: [{ name: "School Project", color: { color: "data-scientist", opacity: "strong" } }],
+      period: "2024 - 2024",
+      techStack: [
+         { name: "Python", icon: <Python /> },
+         { name: "Linux (Ubuntu)", icon: <Terminal /> },
+         { name: "Machine Learning", icon: <Cpu /> },
+         { name: "Network Security", icon: <ShieldSecurity /> },
+      ],
+      img: "",
+      description: `Built a mock network and launched custom-made DDoS attacks against it to generate my own labeled traffic data, since no existing dataset fit what I needed. Used PyTorch to train a CNN on the resulting network logs to classify normal traffic from DDoS traffic, giving a user a way to tell whether an attack is currently happening or already happened just by feeding in logs. Set up and run entirely on Linux (Ubuntu), end to end: the mock network, the attack traffic, and the training pipeline.`,
    },
    {
       name: "Competitive Pokémon Prediction Model",

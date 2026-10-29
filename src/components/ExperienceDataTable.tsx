@@ -130,6 +130,7 @@ const ProjectBox = ({ project, onClick }) => {
 };
 
 const SelectLayer = ({ project, setSelectedProject }) => {
+   const { isMobile } = useMediaQuery();
    const [hoveredIcon, setHoveredIcon] = useState<TechIconProps | null>(null);
    const [hoverRef, setHoverRef] = useState<object | undefined>(undefined);
    const [showDrop, setShowDrop] = useState(false);
@@ -163,10 +164,11 @@ const SelectLayer = ({ project, setSelectedProject }) => {
          onClickOutside={() => setSelectedProject(null)}
          margin={{ left: "large" }}
       >
-         {/* height="100%" (resolved against the Layer's fixed viewport height, since
-             flex="grow" alone doesn't give this element a bound to clip against) is
-             what actually makes overflow="auto" produce a scrollbar here. */}
-         <Box height="100%" overflow="auto">
+         <Box
+            height="100%"
+            overflow="auto"
+            style={!isMobile ? { width: "clamp(320px, 25vw, 560px)" } : undefined}
+         >
             <Box align="start" justify="center" width="medium" pad="medium">
                {project.img ? (
                   <Image width="32px" height="32px" src={project.img}></Image>
@@ -285,20 +287,22 @@ const SelectLayer = ({ project, setSelectedProject }) => {
                   </Box>
                   <Box
                      align="start"
-                     justify="between"
+                     justify="start"
                      fill="horizontal"
                      direction="column"
                      pad="small"
-                     gap="large"
+                     gap="small"
+                     flex={false}
                   >
                      <Box align="start" justify="start" direction="row" gap="small">
                         <Menu />
                         <Text>Description</Text>
                      </Box>
-                     <Box align="center" justify="center" wrap>
-                        <Paragraph size="small">{project.description}</Paragraph>
+                     <Box align="start" justify="start" fill="horizontal" flex={false}>
+                        <Paragraph size="small" fill>
+                           {project.description}
+                        </Paragraph>
                      </Box>
-                     <Box align="center" justify="center" background={{ color: "graph-2" }} wrap />
                   </Box>
                </Box>
             </Box>
